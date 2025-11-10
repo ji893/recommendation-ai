@@ -1,0 +1,418 @@
+[
+  {
+    "id": 26,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-11-05",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:18.583929"
+  },
+  {
+    "id": 25,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-11-05",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:18.739637"
+  },
+  {
+    "id": 24,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-11-05",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:18.875611"
+  },
+  {
+    "id": 23,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-11-05",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:19.002611"
+  },
+  {
+    "id": 22,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-31",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:19.138184"
+  },
+  {
+    "id": 21,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-31",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:19.303096"
+  },
+  {
+    "id": 20,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-31",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:19.760064"
+  },
+  {
+    "id": 19,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-31",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:20.106073"
+  },
+  {
+    "id": 18,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-31",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:20.490297"
+  },
+  {
+    "id": 17,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-30",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:20.599359"
+  },
+  {
+    "id": 16,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-30",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:20.693934"
+  },
+  {
+    "id": 15,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:20.785832"
+  },
+  {
+    "id": 14,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:20.943918"
+  },
+  {
+    "id": 13,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:20.978044"
+  },
+  {
+    "id": 12,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:21.118101"
+  },
+  {
+    "id": 11,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:21.300932"
+  },
+  {
+    "id": 10,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:21.400481"
+  },
+  {
+    "id": 9,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:21.492363"
+  },
+  {
+    "id": 8,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:21.536579"
+  },
+  {
+    "id": 7,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:21.618129"
+  },
+  {
+    "id": 6,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:21.710553"
+  },
+  {
+    "id": 5,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:21.743430"
+  },
+  {
+    "id": 4,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:21.771412"
+  },
+  {
+    "id": 3,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:21.793344"
+  },
+  {
+    "id": 2,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-29",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:21.831207"
+  },
+  {
+    "id": 1,
+    "candidate": "홍길동",
+    "author": "홍길동",
+    "created_at": "2025-10-28",
+    "scores": {
+      "professionalism": 3,
+      "credibility": 3,
+      "personalization": 3,
+      "persuasiveness": 3
+    },
+    "average_score": 3.0,
+    "percentage": 50.0,
+    "raw_response": "",
+    "evaluated_at": "2025-11-05T16:23:21.856223"
+  }
+]

@@ -1,0 +1,3 @@
+﻿id,candidate,author,created_at,accuracy,professionalism,coherence,personalization,persuasiveness,average_score,percentage,evaluated_at
+31,홍길동,홍길동,2025-11-08,4,4,4,4,3,3.8,70.0,2025-11-08T16:29:53.354247
+30,홍길동,홍길동,2025-11-08,4,4,4,3,3,3.6,65.0,2025-11-08T16:30:12.313231
