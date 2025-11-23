@@ -171,6 +171,19 @@ app.add_middleware(
     expose_headers=["*"]
 )
 
+# ===== 루트 엔드포인트 =====
+@app.get("/")
+def root():
+    """
+    서버 상태 확인용 루트 엔드포인트
+    """
+    return {
+        "message": "서버 정상 작동 중",
+        "service": "Recommendation AI",
+        "status": "running",
+        "version": "1.0.0"
+    }
+
 # ===== 문서 파일 처리 및 문체 분석 =====
 async def extract_text_from_file(file: UploadFile) -> str:
     """
