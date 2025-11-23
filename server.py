@@ -171,18 +171,24 @@ app.add_middleware(
     expose_headers=["*"]
 )
 
-# ===== 루트 엔드포인트 =====
+# ===== 루트 엔드포인트 - 프론트엔드 서빙 =====
 @app.get("/")
 def root():
     """
-    서버 상태 확인용 루트 엔드포인트
+    프론트엔드 index.html 반환
     """
-    return {
-        "message": "서버 정상 작동 중",
-        "service": "Recommendation AI",
-        "status": "running",
-        "version": "1.0.0"
-    }
+    frontend_index = os.path.join(FRONTEND_DIR, "index.html")
+    if os.path.exists(frontend_index):
+        return FileResponse(frontend_index)
+    else:
+        # 프론트엔드가 없으면 API 상태 반환
+        return {
+            "message": "서버 정상 작동 중",
+            "service": "Recommendation AI",
+            "status": "running",
+            "version": "1.0.0",
+            "note": "Frontend not found. Build the React app first."
+        }
 
 # ===== 문서 파일 처리 및 문체 분석 =====
 async def extract_text_from_file(file: UploadFile) -> str:
