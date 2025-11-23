@@ -27,9 +27,3 @@ reportlab==4.0.7
 
 # Environment Variables
 python-dotenv==1.0.0
-
-# Data Validation
-# pydantic already included above
-
-# CORS
-# fastapi-cors 제거, FastAPI CORS Middleware 사용 가능
