@@ -4,6 +4,9 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from fastapi import FastAPI
+from sqlalchemy import create_engine
+
+
 # 기타 필요한 import
 
 # ---------- 환경변수 읽기 ----------
@@ -15,6 +18,12 @@ DB_PASSWORD = os.getenv("DB_PASSWORD")
 # -----------------------------------
 
 app = FastAPI()
+
+
+# ---------- DB 연결 ----------
+DATABASE_URL = f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+engine = create_engine(DATABASE_URL)
+# ---------------------------
 
 # .env에서 키/DB 정보 로드 (가장 먼저!)
 ENV_PATH = Path(__file__).resolve().parent / ".env"
