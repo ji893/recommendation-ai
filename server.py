@@ -3,6 +3,19 @@ import sys
 from pathlib import Path
 from dotenv import load_dotenv
 
+from fastapi import FastAPI
+# 기타 필요한 import
+
+# ---------- 환경변수 읽기 ----------
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+DB_NAME = os.getenv("DB_NAME")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+# -----------------------------------
+
+app = FastAPI()
+
 # .env에서 키/DB 정보 로드 (가장 먼저!)
 ENV_PATH = Path(__file__).resolve().parent / ".env"
 load_dotenv(dotenv_path=ENV_PATH, override=True)
