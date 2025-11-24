@@ -1,26 +1,7 @@
 import os
+import sys
 from pathlib import Path
 from dotenv import load_dotenv
-
-from fastapi import FastAPI
-
-# .env에서 키/DB 정보 로드
-ENV_PATH = Path(__file__).resolve().parent / ".env"
-load_dotenv(dotenv_path=ENV_PATH, override=True)
-
-DB_HOST = os.getenv("DB_HOST")
-DB_PORT = os.getenv("DB_PORT")
-DB_NAME = os.getenv("DB_NAME")
-DB_USER = os.getenv("DB_USER")
-DB_PASSWORD = os.getenv("DB_PASSWORD")
-
-# DB 연결
-from sqlalchemy import create_engine
-DATABASE_URL = f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-engine = create_engine(DATABASE_URL)
-
-# FastAPI 앱
-app = FastAPI()
 
 # .env에서 키/DB 정보 로드 (가장 먼저!)
 ENV_PATH = Path(__file__).resolve().parent / ".env"
@@ -100,14 +81,24 @@ else:
 # OpenAI 클라이언트 초기화
 openai_client = OpenAI(api_key=openai_api_key) if openai_api_key else None
 
-# DATABASE_URL 자동 변환: mysql:// -> mysql+pymysql://
+# DATABASE_URL 자동 변환: MySQL만 사용 (PostgreSQL 불가)
 _raw_db_url = os.getenv("DATABASE_URL", "mysql+pymysql://app:app@localhost:3306/collyai_dev?charset=utf8mb4")
+
+# PostgreSQL URL이 들어오면 에러 발생 (MySQL만 사용)
+if _raw_db_url.startswith("postgresql"):
+    raise ValueError(
+        "❌ PostgreSQL은 지원하지 않습니다. MySQL 데이터베이스 URL을 사용하세요.\n"
+        "✅ 올바른 형식: mysql+pymysql://<USER>:<PASSWORD>@<HOST>:<PORT>/<DBNAME>?charset=utf8mb4"
+    )
+
+# MySQL URL 자동 변환: mysql:// -> mysql+pymysql://
 if _raw_db_url.startswith("mysql://") and not _raw_db_url.startswith("mysql+pymysql://"):
-    # Railway MySQL URL을 PyMySQL 형식으로 변환
+    # Railway/Render MySQL URL을 PyMySQL 형식으로 변환
     _raw_db_url = _raw_db_url.replace("mysql://", "mysql+pymysql://", 1)
     # charset=utf8mb4 추가 (없는 경우)
     if "charset=" not in _raw_db_url:
         _raw_db_url += ("&" if "?" in _raw_db_url else "?") + "charset=utf8mb4"
+
 DATABASE_URL = _raw_db_url
 JWT_SECRET = os.getenv("JWT_SECRET", "your-secret-key")
 JWT_ALGORITHM = "HS256"
