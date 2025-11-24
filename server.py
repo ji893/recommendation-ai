@@ -4544,4 +4544,7 @@ if os.path.exists(FRONTEND_DIR):
         raise HTTPException(status_code=404, detail="Frontend not found")
 
 if __name__ == "__main__":
-    uvicorn.run("server:app", host="0.0.0.0", port=8000, reload=True)
+    # Render가 제공하는 PORT 환경변수 사용 (기본값: 8000)
+    port = int(os.environ.get("PORT", 8000))
+    print(f"🚀 서버 시작: 포트 {port}")
+    uvicorn.run("server:app", host="0.0.0.0", port=port, reload=True)
