@@ -81,23 +81,29 @@ else:
 # OpenAI 클라이언트 초기화
 openai_client = OpenAI(api_key=openai_api_key) if openai_api_key else None
 
-# DATABASE_URL 자동 변환: MySQL만 사용 (PostgreSQL 불가)
+# DATABASE_URL 자동 변환: PostgreSQL 및 MySQL 모두 지원
 _raw_db_url = os.getenv("DATABASE_URL", "mysql+pymysql://app:app@localhost:3306/collyai_dev?charset=utf8mb4")
 
-# PostgreSQL URL이 들어오면 에러 발생 (MySQL만 사용)
-if _raw_db_url.startswith("postgresql"):
-    raise ValueError(
-        "❌ PostgreSQL은 지원하지 않습니다. MySQL 데이터베이스 URL을 사용하세요.\n"
-        "✅ 올바른 형식: mysql+pymysql://<USER>:<PASSWORD>@<HOST>:<PORT>/<DBNAME>?charset=utf8mb4"
-    )
+# PostgreSQL URL 변환: postgresql:// -> postgresql+psycopg2://
+if _raw_db_url.startswith("postgresql://") and not _raw_db_url.startswith("postgresql+psycopg2://"):
+    # Render PostgreSQL URL을 psycopg2 형식으로 변환
+    _raw_db_url = _raw_db_url.replace("postgresql://", "postgresql+psycopg2://", 1)
+    print("✅ PostgreSQL 연결 모드 (Render 무료 DB 지원)")
 
-# MySQL URL 자동 변환: mysql:// -> mysql+pymysql://
-if _raw_db_url.startswith("mysql://") and not _raw_db_url.startswith("mysql+pymysql://"):
-    # Railway/Render MySQL URL을 PyMySQL 형식으로 변환
+elif _raw_db_url.startswith("postgresql+psycopg2://"):
+    # 이미 올바른 형식
+    print("✅ PostgreSQL 연결 모드 (psycopg2)")
+
+elif _raw_db_url.startswith("mysql://") and not _raw_db_url.startswith("mysql+pymysql://"):
+    # MySQL URL 자동 변환: mysql:// -> mysql+pymysql://
     _raw_db_url = _raw_db_url.replace("mysql://", "mysql+pymysql://", 1)
     # charset=utf8mb4 추가 (없는 경우)
     if "charset=" not in _raw_db_url:
         _raw_db_url += ("&" if "?" in _raw_db_url else "?") + "charset=utf8mb4"
+    print("✅ MySQL 연결 모드")
+
+elif _raw_db_url.startswith("mysql+pymysql://"):
+    print("✅ MySQL 연결 모드 (pymysql)")
 
 DATABASE_URL = _raw_db_url
 JWT_SECRET = os.getenv("JWT_SECRET", "your-secret-key")
@@ -131,11 +137,19 @@ llm = ChatAnthropic(
 )
 
 # DB 엔진
+# PostgreSQL과 MySQL에 맞는 connect_args 설정
+connect_args = {}
+if "mysql" in DATABASE_URL:
+    connect_args = {'charset': 'utf8mb4'}
+elif "postgresql" in DATABASE_URL:
+    # PostgreSQL은 charset 대신 client_encoding 사용 (선택사항)
+    connect_args = {}
+
 engine = create_engine(
     DATABASE_URL, 
     pool_pre_ping=True, 
     future=True,
-    connect_args={'charset': 'utf8mb4'}
+    connect_args=connect_args
 )
 
 app = FastAPI()
