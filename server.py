@@ -81,29 +81,18 @@ else:
 # OpenAI 클라이언트 초기화
 openai_client = OpenAI(api_key=openai_api_key) if openai_api_key else None
 
-# DATABASE_URL 자동 변환: PostgreSQL 및 MySQL 모두 지원
-_raw_db_url = os.getenv("DATABASE_URL", "mysql+pymysql://app:app@localhost:3306/collyai_dev?charset=utf8mb4")
+# DATABASE_URL 자동 변환: PostgreSQL 전용
+_raw_db_url = os.getenv("DATABASE_URL", "postgresql+psycopg2://user:pass@localhost:5432/collyai_dev")
 
 # PostgreSQL URL 변환: postgresql:// -> postgresql+psycopg2://
 if _raw_db_url.startswith("postgresql://") and not _raw_db_url.startswith("postgresql+psycopg2://"):
     # Render PostgreSQL URL을 psycopg2 형식으로 변환
     _raw_db_url = _raw_db_url.replace("postgresql://", "postgresql+psycopg2://", 1)
-    print("✅ PostgreSQL 연결 모드 (Render 무료 DB 지원)")
-
+    print("✅ PostgreSQL 연결 (Render 무료 DB)")
 elif _raw_db_url.startswith("postgresql+psycopg2://"):
-    # 이미 올바른 형식
-    print("✅ PostgreSQL 연결 모드 (psycopg2)")
-
-elif _raw_db_url.startswith("mysql://") and not _raw_db_url.startswith("mysql+pymysql://"):
-    # MySQL URL 자동 변환: mysql:// -> mysql+pymysql://
-    _raw_db_url = _raw_db_url.replace("mysql://", "mysql+pymysql://", 1)
-    # charset=utf8mb4 추가 (없는 경우)
-    if "charset=" not in _raw_db_url:
-        _raw_db_url += ("&" if "?" in _raw_db_url else "?") + "charset=utf8mb4"
-    print("✅ MySQL 연결 모드")
-
-elif _raw_db_url.startswith("mysql+pymysql://"):
-    print("✅ MySQL 연결 모드 (pymysql)")
+    print("✅ PostgreSQL 연결 (psycopg2)")
+else:
+    print(f"⚠️ 알 수 없는 데이터베이스 URL 형식: {_raw_db_url[:20]}...")
 
 DATABASE_URL = _raw_db_url
 JWT_SECRET = os.getenv("JWT_SECRET", "your-secret-key")
@@ -136,20 +125,12 @@ llm = ChatAnthropic(
     max_tokens=4096  # 충분한 길이의 추천서 생성을 위해 토큰 수 증가
 )
 
-# DB 엔진
-# PostgreSQL과 MySQL에 맞는 connect_args 설정
-connect_args = {}
-if "mysql" in DATABASE_URL:
-    connect_args = {'charset': 'utf8mb4'}
-elif "postgresql" in DATABASE_URL:
-    # PostgreSQL은 charset 대신 client_encoding 사용 (선택사항)
-    connect_args = {}
-
+# DB 엔진 (PostgreSQL 전용)
 engine = create_engine(
-    DATABASE_URL, 
-    pool_pre_ping=True, 
-    future=True,
-    connect_args=connect_args
+    DATABASE_URL,       # postgresql+psycopg2://user:pass@host:port/dbname
+    pool_pre_ping=True, # 연결 유지 확인 (중요!)
+    echo=True,          # SQL 쿼리 로그 출력 (디버깅용)
+    future=True         # SQLAlchemy 2.0 스타일
 )
 
 app = FastAPI()
