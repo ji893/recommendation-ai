@@ -1,5 +1,3 @@
-좋아. **사진은 맨 아래에 넣는 걸 전제로 빼고**, 네가 준 내용을 최대한 살리면서 교수님이 읽기 좋은 형태로 전체 README를 정리했어. 그대로 복붙하면 돼.
-
 # LLM 기반 개인화 추천서 생성 및 품질 평가 시스템
 
 > An LLM-based personalized recommendation letter generation and evaluation system.
