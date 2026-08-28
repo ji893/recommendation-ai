@@ -1,4 +1,4 @@
-# LLM 기반 개인화 추천서 생성 및 품질 평가 시스템1
+# LLM 기반 개인화 추천서 생성 및 품질 평가 시스템
 
 > An LLM-based personalized recommendation letter generation and evaluation system.
 
